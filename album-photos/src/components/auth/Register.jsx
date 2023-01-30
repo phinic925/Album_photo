@@ -23,7 +23,7 @@ function Register() {
      });
      google.accounts.id.renderButton(
        document.getElementById("signInDiv"),
-      
+       {theme: "outline",size: "large"}
      )
        },[])
     return(
@@ -84,7 +84,8 @@ function Register() {
                   size="lg"
                   style={{ backgroundColor: "#dd4b39" }}
                 >
-                  <MDBIcon  className="mx-2"  id="signInDiv"/>
+              <MDBIcon className="mx-2" id="signInDiv" />
+              
                  
                 </MDBBtn>
   

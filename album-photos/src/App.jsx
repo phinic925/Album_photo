@@ -12,6 +12,7 @@ import {
   Route,
   
 } from 'react-router-dom';
+import Register from "./components/auth/Register";
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
     <div className="App">
         <Navbar/>
       <Routes>
-      <Route exact path="/" element={<Home />} />
+      <Route exact path="/" element={<Register />} />
       <Route exact path="/users" element={<User />} />
       <Route exact path="/albums" element={<Album />} />
     

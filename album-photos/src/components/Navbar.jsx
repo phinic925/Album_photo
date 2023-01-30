@@ -17,7 +17,16 @@ export default function Navbar() {
   return (
     <MDBNavbar  fixed='top'expand='lg' light bgColor='light'>
       <MDBContainer fluid>
-        <MDBNavbarBrand href='#'>Navbar</MDBNavbarBrand>
+      <MDBNavbarBrand href='#'>
+            <img
+              src='https://images.pexels.com/photos/906531/pexels-photo-906531.jpeg?auto=compress&cs=tinysrgb&w=600'
+              
+              alt=''
+              className='image'
+              loading='lazy'
+            />
+           PNP 
+          </MDBNavbarBrand>
         <MDBNavbarToggler
           type='button'
           aria-expanded='false'
