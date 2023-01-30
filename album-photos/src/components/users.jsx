@@ -17,7 +17,7 @@ export default function User() {
       
     }, [])
     return(
-        <MDBTable align='middle'>
+        <MDBTable align='middle' className="table">
       <MDBTableHead>
         <tr>
           <th scope='col'>Name</th>
