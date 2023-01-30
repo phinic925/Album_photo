@@ -1,4 +1,4 @@
-import  React  from "react";
+import  React,{useEffect}  from "react";
 import {
     MDBBtn,
     MDBContainer,
@@ -13,6 +13,19 @@ import {
   
 
 function Register() {
+    function handleCallbackResponse(response) {
+        console.log("Encoded JWT ID token: " + response.credential); 
+       }
+       useEffect(() => {
+     google.accounts.id.initialize({
+       client_id: "994111349583-pt8u5odl7vcua3bg2kkosbqf5pj95s5i.apps.googleusercontent.com",
+       callback: handleCallbackResponse
+     });
+     google.accounts.id.renderButton(
+       document.getElementById("signInDiv"),
+      
+     )
+       },[])
     return(
         <MDBContainer className="my-5">
         <MDBCard>
@@ -71,8 +84,8 @@ function Register() {
                   size="lg"
                   style={{ backgroundColor: "#dd4b39" }}
                 >
-                  <MDBIcon fab icon="google" className="mx-2" />
-                  Sign in with google
+                  <MDBIcon  className="mx-2"  id="signInDiv"/>
+                 
                 </MDBBtn>
   
                 <MDBBtn

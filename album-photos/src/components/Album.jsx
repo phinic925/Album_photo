@@ -40,11 +40,9 @@ export default function Album() {
           </MDBCard>
           </MDBCol>
                 </>
-            )
+    
+    )
         })}
-        
-       
-       
     </MDBRow>
   );
 }
