@@ -58,7 +58,7 @@ export default function User() {
          <td>{item.email}</td>
          <td>
          <MDBBtn color="info" onClick={() => displayAlbumCount(item.id)}>
-               VIEW ALBUM
+               VIEW 
              </MDBBtn>
             </td>
          
