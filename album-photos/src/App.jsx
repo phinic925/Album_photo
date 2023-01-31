@@ -2,7 +2,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 // import Album from "./components/Album";
 // import Register from "./components/auth/Register";
-// import Home from "./components/Home";
+
 import User from "./components/users";
 import Home from "./components/Home";
 import Album from "./components/Album";
@@ -24,6 +24,7 @@ function App() {
       <Route exact path="/" element={<Register />} />
       <Route exact path="/users" element={<User />} />
       <Route exact path="/albums" element={<Album />} />
+      <Route exact path="/photos" element={<Home />} />
     
 
       </Routes>

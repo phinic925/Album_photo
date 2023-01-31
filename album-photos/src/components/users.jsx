@@ -1,35 +1,36 @@
 import React, { useState } from "react";
 import { MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import { useEffect } from "react";
-// import { useParams } from "react-router-dom";
+
+
 
 export default function User() {
-//    const {id} = useParams;
+
     const[data, setData] = useState([]);
-    const[album, setAlbum] = useState([]);
+    const [albums, setAlbums] = useState([]);
+   
     const [isLoading, setIsLoading] = useState(false)
-    useEffect(()=>{
-        fetch("https://jsonplaceholder.typicode.com/users")
-        .then(res => res.json())
-
-        .then(data =>{
-            setData(data)
-               setIsLoading(false)
-            console.log(data)
-
-        });
+    useEffect(() => {
+      fetch("https://jsonplaceholder.typicode.com/users")
+      .then(res => res.json())
+      .then(data =>{
+        setData(data)
+        console.log(data);
+      })
+      fetch('https://jsonplaceholder.typicode.com/albums')
+      .then(response => response.json())
+      .then(data => setAlbums(data));
       
-    }, [])
-    // const fetchData = () => {
-    //     fetch("https://jsonplaceholder.typicode.com/albums")
-    //       .then(response => {
-    //         return response.json()
-    //       })
-    //       .then(data => {
-    //         setAlbum(data)
-    //       })
-    //   }
+    }, []);
+    const displayAlbumCount = (userId) => {
+      // Filter albums based on userId
+      const userAlbums = albums.filter(album => album.userId === userId);
+      alert(`User has ${userAlbums.length} albums.`);
+    };
+   
+    
     return(
+      <>
         <MDBTable align='middle' className="table">
       <MDBTableHead>
         <tr>
@@ -56,10 +57,11 @@ export default function User() {
          
          <td>{item.email}</td>
          <td>
-           <MDBBtn color='link' rounded size='sm'>
-             VIEW AlBUMS
-           </MDBBtn>
-         </td>
+         <MDBBtn color="info" onClick={() => displayAlbumCount(item.id)}>
+               VIEW ALBUM
+             </MDBBtn>
+            </td>
+         
        </tr>
        </>
         )
@@ -69,7 +71,10 @@ export default function User() {
        
       
       </MDBTableBody>
+    
     </MDBTable>
+    
+     </>
     )
     
 }

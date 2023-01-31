@@ -11,17 +11,22 @@ import {
 
 export default function Album() {
     const[data, setData] = useState([]);
-    useEffect(()=>{
-        fetch("https://jsonplaceholder.typicode.com/albums")
-        .then(res => res.json())
+   
+    // const [albumCount, setAlbumCount] = useState(0);
+useEffect(() => {
+  fetch("https://jsonplaceholder.typicode.com/albums")
+  .then(res=> res.json())
+  .then(data => {
+    setData(data)
+    console.log(data)
+  })
+ 
+        
+},[])
 
-        .then(data =>{
-            setData(data)
-            console.log(data)
 
-        });
-      
-    }, [])
+     
+        
   return (
     <MDBRow className="row-cols-1 row-cols-md-3 g-4 mt-4">
       
@@ -29,6 +34,7 @@ export default function Album() {
          {data.map((item)=>{
             return(
                 <>
+                
                   <MDBCol>
               <MDBCard className="h-100">  
           <MDBCardBody>
@@ -43,6 +49,9 @@ export default function Album() {
     
     )
         })}
+        
+      {/* <p>The user has {albumCount} albums.</p>
+      <button onClick={onClose}>Close</button> */}
     </MDBRow>
   );
 }
