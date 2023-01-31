@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from "react";
+import axios from 'axios';
 import {
   MDBCard,
   MDBCardBody,
@@ -10,28 +11,40 @@ import {
 } from "mdb-react-ui-kit";
 
 export default function Album() {
-    const[data, setData] = useState([]);
+    const[albums, setAlbums] = useState([]);
+    const[selectedAlbum, setSelectedAlbums] = useState({});
+     const[photos, setPhotos] = useState([]);
    
-    // const [albumCount, setAlbumCount] = useState(0);
-useEffect(() => {
-  fetch("https://jsonplaceholder.typicode.com/albums")
-  .then(res=> res.json())
-  .then(data => {
-    setData(data)
-    console.log(data)
-  })
- 
-        
-},[])
-
-
+    useEffect(() => {
+      axios
+        .get('https://jsonplaceholder.typicode.com/albums')
+        .then(response => {
+          setAlbums(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }, []);
+  
+    const handleUserSelect = albumId => {
+      setSelectedAlbums(albums.find(album => album.id === albumId));
+      axios
+        .get(`https://jsonplaceholder.typicode.com/photos?AlbumId=${albumId}`)
+        .then(response => {
+          setPhotos(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    };
      
         
   return (
+    <>
     <MDBRow className="row-cols-1 row-cols-md-3 g-4 mt-4">
       
        
-         {data.map((item)=>{
+         {albums.map((item)=>{
             return(
                 <>
                 
@@ -41,17 +54,28 @@ useEffect(() => {
             <MDBCardTitle>{item.title}</MDBCardTitle>
           </MDBCardBody>
           <MDBCardFooter>
-            <MDBBtn color="info">View</MDBBtn>
+            <MDBBtn color="info" onClick={() => handleUserSelect(item.id)}>View</MDBBtn>
           </MDBCardFooter>
           </MDBCard>
           </MDBCol>
                 </>
     
-    )
+        )
         })}
         
-      {/* <p>The user has {albumCount} albums.</p>
-      <button onClick={onClose}>Close</button> */}
+        
+     
     </MDBRow>
+     {selectedAlbum.id && (
+      <div>
+        <h2>{selectedAlbum.title}'s Albums</h2>
+        <ul>
+          {photos.map(photo => (
+            <li key={photo.id}>{photo.title}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+    </>
   );
 }
