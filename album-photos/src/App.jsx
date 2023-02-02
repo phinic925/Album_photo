@@ -13,7 +13,8 @@ import {
   
 } from 'react-router-dom';
 import Register from "./components/auth/Register";
-import UserInformation from "./components/UserInformation";
+import UserInformation from "./components/userInformation/UserInformation";
+import Photo from "./components/photo/Photo";
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
     <div className="App">
         <Navbar/>
       <Routes>
-      <Route exact path="/" element={<Register />} />
+      <Route exact path="/" element={<Photo/>} />
       <Route exact path="/users" element={<User />} />
       <Route exact path="/albums" element={<Album />} />
       <Route exact path="/photos" element={<UserInformation />} />
