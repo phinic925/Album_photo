@@ -32,6 +32,43 @@ body {
   min-height: 100vh;
  
 }
+.btnn{
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+.cont {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-image {
+  background-image: url("https://images.pexels.com/photos/4108288/pexels-photo-4108288.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load");
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+}
+
+.description {
+  text-align: center;
+  color: white;
+}
+
+.start-button {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 
 h1 {
@@ -87,9 +124,45 @@ ul {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #7f47bf;
   }
   button {
     background-color: #f9f9f9;
   }
+}
+.sect{
+  margin-top: 80px;
+  margin-bottom: 30px;
+  
+
+}
+.sect .read{
+  display: flex;
+}
+.sect .read .left img{
+  height: 500px;
+  width: 480px;
+  margin: 50px;
+  margin-top: 40px;
+  opacity: 0.7;
+}
+.sect .right{
+  margin-top: 80px;
+}
+.sect .right .cut{
+  border: 2px solid blue;
+  width: 100px;
+  margin-left: 80px;
+
+}
+.sect .right h1{
+  font-size: 30px;
+
+}
+.sect .read .right button{
+  color: black;
+  background-color: blue;
+  font-size: 15px;
+  border-radius: 6px
+
 }

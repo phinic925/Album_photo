@@ -1,4 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardImage,
+  MDBRow,
+  MDBCol,
+  MDBBtn,
+} from "mdb-react-ui-kit";
+
 
 const Photo = () => {
   const [photos, setPhotos] = useState([]);
@@ -34,20 +44,48 @@ const Photo = () => {
   };
 
   return (
-    <ul>
-      {photos.map(photo => (
-        <li key={photo.id}>
-          <img src={photo.url} alt={photo.title} />
-          <h3>{photo.title}</h3>
-          <input
+ 
+    <MDBRow className="row-cols-1 row-cols-md-3 g-4 mt-4">
+      
+       
+    {photos.map((item)=>{
+       return(
+           <>
+           
+             <MDBCol key={item.id}>
+         <MDBCard className="h-100">
+         <MDBCardBody>
+         <MDBCardImage
+                src={item.url}
+                alt={item.title}
+                className="rounded-start w-100"
+              />
+     </MDBCardBody>  
+     <MDBCardBody>
+       <MDBCardTitle>{item.title}</MDBCardTitle>
+     </MDBCardBody>
+     <MDBCardBody>
+     <input
+          className="bttn"
             type="text"
-            defaultValue={photo.title}
-            onBlur={event => handleTitleEdit(photo.id, event.target.value)}
+            defaultValue={item.title}
+            onBlur={event => handleTitleEdit(item.id, event.target.value)}
           />
-        </li>
-      ))}
-    </ul>
-  );
-};
+     </MDBCardBody>
+    
+     </MDBCard>
+     </MDBCol>
+           </>
 
+   )
+   })}
+   
+   
+
+</MDBRow> 
+ 
+   
+      
+  )
+}
 export default Photo;
