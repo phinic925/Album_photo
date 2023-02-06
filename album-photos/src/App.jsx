@@ -1,4 +1,6 @@
 import "./App.css";
+
+import React from "react";
 import Navbar from "./components/Navbar";
 // import { AuthProvider } from "./AuthProvider";
 // import Album from "./components/Album";
@@ -15,6 +17,7 @@ import {
 } from 'react-router-dom';
 import UserInformation from "./components/userInformation/UserInformation";
 import Photo from "./components/photo/Photo";
+import Login from "./components/auth/login";
 
 
 function App() {

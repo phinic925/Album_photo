@@ -1,5 +1,8 @@
 import  React,{useEffect,useState}  from "react";
 import jwt_decode from "jwt-decode";
+
+
+
 import {
     MDBBtn,
     MDBContainer,
@@ -12,60 +15,34 @@ import {
     MDBInput,
   } from "mdb-react-ui-kit";
 
-  // import { Link, useNavigate } from "react-router-dom";
-// import { auth, signInWithEmailAndPassword, signInWithGoogle } from "./firebase";
-// import { useAuthState } from "react-firebase-hooks/auth";
-  
+  import { useNavigate } from 'react-router-dom';
 
 function Register() {
-  const[user,setUser] = useState({});
-  const [isSignedIn, setIsSignedIn] = useState(false)
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [user, loading, error] = useAuthState(auth);
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   if (loading) {
-  //     alert(6)
-     
-  //     return;
-  //   }
-  //   if (user) navigate("/users");
-  // }, [user, loading]);
-  function handleCallbackResponse(response) {
-    console.log("Encoded JWT ID token: " + response.credential)
-    var userObject = jwt_decode(response.credential);
-    console.log(userObject)
-    setUser(userObject)
-    
-   }
-  // const initializeGsi = () => {
-  //           google.accounts.id.initialize({
-  //               client_id: '994111349583-j4paaeqjf3kq18ehhv5gipkbpk66urjp.apps.googleusercontent.com',
-  //           });
-  //           google.accounts.id.prompt(notification => {
-  //               console.log(notification)
-  //           });
-  //    }
+  
+  const[user, setUser] = useState({});
+  const navigateTo = useNavigate();
+    function handleCallbackResponse(response) {
+       console.log("Encoded JWT ID token: " + response.credential) 
+       var user = jwt_decode(response.credential);
+       console.log(user);
+       setUser(user)
+       if (response.email_verified === "true") {
+        setIsSignedIn(true);
+        navigateTo('/users')
+      }
+    }
+    useEffect(()=>{
+        google.accounts.id.initialize({
+            client_id: "994111349583-pt8u5odl7vcua3bg2kkosbqf5pj95s5i.apps.googleusercontent.com",
+            callback: handleCallbackResponse
+        })
+        google.accounts.id.renderButton(
+            document.getElementById("signInDiv"),
+            // {theme: "outline", size: "large"}
+        );
+    }, [])
+ 
 
-  useEffect(()=> {
-    google.accounts.id.initialize({
-      client_id:"579736159954-mh3hna4gq78td46q3umgj6bg40bkvfar.apps.googleusercontent.com",
-      callback: handleCallbackResponse
-
-    })
-    google.accounts.id.renderButton(
-      document.getElementById("signInDiv"),
-    )
-  }, [])
-  // useEffect(() => {
-  //          const script = document.createElement('script')
-  //           script.src = 'https://accounts.google.com/gsi/client'
-  //           script.onload = initializeGSI()
-  //           script.async = true;
-    
-  //           document.querySelector('body').appendChild(script)
-  //       }, [])
     return(
         <MDBContainer className="my-5">
         <MDBCard>
@@ -102,8 +79,7 @@ function Register() {
                   id="formControlLg"
                   type="email"
                   size="lg"
-                  // value={email}
-                  // onChange={(e) => setEmail(e.target.value)}
+                 
                  />
                  <MDBInput
                   wrapperClass="mb-4"
@@ -111,8 +87,7 @@ function Register() {
                   id="formControlLg"
                   type="password"
                   size="lg"
-                  // value={password}
-                  // onChange={(e) => setPassword(e.target.value)}
+                 
                 />
   
                 <MDBBtn className="mb-4 px-5" color="dark" size="lg" >
@@ -134,14 +109,14 @@ function Register() {
                 </MDBBtn>
          
   
-                <MDBBtn
+                {/* <MDBBtn
                   className="mb-4 w-100"
                   size="lg"
                   style={{ backgroundColor: "#3b5998" }}
-                >
-                  <MDBIcon fab icon="facebook-f" className="mx-2"/>
-                  Sign in with facebook
-                </MDBBtn>
+                > */}
+                
+                   
+               
   
                 <div className="d-flex flex-row justify-content-start">
                   <a href="#!" className="small text-muted me-1">

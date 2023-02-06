@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "HTTPS=true react-scripts start",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
@@ -14,11 +15,13 @@
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "axios": "^1.2.6",
     "firebase": "^9.17.1",
+    "gapi-script": "^1.2.0",
     "jwt-decode": "^3.1.2",
     "mdb-react-ui-kit": "^5.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-firebase-hooks": "^5.1.1",
+    "react-google-login": "^5.2.2",
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.8.0"
   },
