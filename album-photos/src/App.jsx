@@ -32,7 +32,7 @@ function App() {
       <Route exact path="/albums" element={<Album />} />
       <Route exact path="/photos" element={<Photo />} />
       <Route exact path="/userinformation" element={<UserInformation />} />
-      <Route exact path="/register" element={<Register/>} />
+      <Route exact path="/register" element={<Login/>} />
     
 
       </Routes>

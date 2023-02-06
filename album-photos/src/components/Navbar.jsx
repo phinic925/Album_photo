@@ -15,7 +15,7 @@ export default function Navbar() {
   const [showNav, setShowNav] = useState(false);
 
   return (
-    <MDBNavbar  fixed='top'expand='lg' light bgColor='light'>
+    <MDBNavbar  fixed='top'expand='lg' dark bgColor='primary'>
       <MDBContainer fluid>
       <MDBNavbarBrand href='#'>
             <img

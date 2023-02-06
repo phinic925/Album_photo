@@ -15,7 +15,7 @@ import {
     MDBInput,
   } from "mdb-react-ui-kit";
 
-  import { useNavigate } from 'react-router-dom';
+  import { Link, useNavigate } from 'react-router-dom';
 
 function Register() {
   
@@ -26,9 +26,8 @@ function Register() {
        var user = jwt_decode(response.credential);
        console.log(user);
        setUser(user)
-       if (response.email_verified === "true") {
-        setIsSignedIn(true);
-        navigateTo('/users')
+       if (user.email_verified) {
+      navigateTo('/users')
       }
     }
     useEffect(()=>{
@@ -38,7 +37,7 @@ function Register() {
         })
         google.accounts.id.renderButton(
             document.getElementById("signInDiv"),
-            // {theme: "outline", size: "large"}
+            {theme: "outline", size: "large"}
         );
     }, [])
  
@@ -91,22 +90,27 @@ function Register() {
                 />
   
                 <MDBBtn className="mb-4 px-5" color="dark" size="lg" >
-                  Login
+                <Link to="/users">
+                  Login</Link>
                 </MDBBtn> 
    
                 <div className="divider d-flex align-items-center justify-content-center my-4">
                   <p className="text-center fw-bold mx-3 mb-0">OR</p>
                 </div>
   
-                <MDBBtn
+                {/* <MDBBtn
                   className="mb-2 w-100"
                   size="lg"
                   style={{ backgroundColor: "#dd4b39" }}
                 >
-               <MDBIcon className="mx-2" id="signInDiv"/>
+               <MDBIcon className="mx-2" />
+               <div id="signInDiv"></div>
+             
               
-               sign in with Google
-                </MDBBtn>
+              <Link to="/users"></Link>
+             
+                </MDBBtn> */}
+                <div id="signInDiv"></div>
          
   
                 {/* <MDBBtn

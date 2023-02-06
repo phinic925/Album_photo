@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import { useEffect } from "react";
+import { Link} from 'react-router-dom';
 
 
 
@@ -73,6 +74,7 @@ export default function User() {
       </MDBTableBody>
     
     </MDBTable>
+    <MDBBtn color="info"><Link to="/userinformation"> VIEW USER'S INFORMATION </Link></MDBBtn>
     
      </>
     )

@@ -32,7 +32,7 @@ const UserInformation = () => {
 
   return (
     <div>
-      <h2 className='header'>User Information</h2>
+     
       <MDBTable>
       <MDBTableHead>
           <tr>
