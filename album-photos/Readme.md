@@ -1,22 +1,8 @@
-# signing system
+#album-photo application
 
-## by sylvia boyani
+## by phinic nyangate
 
-## Landing Page
 
-![image](./assets/images/home-page.png)
-
-## user's Page
-
-![image](./assets/images/student-page.png)
-
-## Album Page
-
-![image](./assets/images/technical-mentor-page.png)
-
-## Photos Page
-
-![image](./assets/images/dashboard-page.png)
 
 ## Table of Content
 
@@ -26,8 +12,7 @@
 - [Requirements](#requirements)
 - [Installation Process](#installation-Process)
 - [Live Link](#Live-Link)
-- [figma Link] (#Figma-Link)
-- [Technology  Used](#technology-Used)
+- - [Technology  Used](#technology-Used)
 - [Licence](#licence)
 - [Authors Info](#Authors-Info) -
 
@@ -37,7 +22,7 @@
 [Go Back to the top](#Album-photo)
 ## Features
 As a user of the application,you will be able to :
-1. sign in and check or out
+1. sign in
 2. See data of users and their albums
 3. See data of albums and their photos
 4. See photos and edit their title
@@ -53,7 +38,7 @@ As a user of the application,you will be able to :
 | Enter your Email Address        | phinicnyangate@gmail.com |        |
 |          |        |
 | Press login                    |                          |        |
-[Go Back to the top](#signing system)
+[Go Back to the top](#album-photo)
 
 ### Requirements
 
