@@ -176,8 +176,8 @@ export default function Login (){
                 />
   
                 <MDBBtn className="mb-4 px-5" color="dark" size="lg" >
-                <Link to="/users">
-                  Login</Link>
+                
+                  Login
                 </MDBBtn> 
    
                 <div className="divider d-flex align-items-center justify-content-center my-4">

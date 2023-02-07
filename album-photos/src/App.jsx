@@ -1,11 +1,6 @@
 import "./App.css";
-
 import React from "react";
 import Navbar from "./components/Navbar";
-// import { AuthProvider } from "./AuthProvider";
-// import Album from "./components/Album";
-import Register from "./components/auth/Register";
-
 import User from "./components/users";
 import Home from "./components/Home";
 import Album from "./components/Album";

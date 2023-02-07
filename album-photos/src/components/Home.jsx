@@ -11,20 +11,7 @@ import {
 } from 'mdb-react-ui-kit';
 const Home = () => {
   const navigate = useNavigate();
-  const SocialIcons = () => (
-    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '20px', width:'100%' }}>
-      <a href="#">
-        <h5> find us on </h5>
-        <FaFacebook size={30} />
-      </a>
-      <a href="#">
-        <FaTwitter size={30} />
-      </a>
-      <a href="#">
-        <FaInstagram size={30} />
-      </a>
-    </div>
-  );
+  
   return (
     <>
     <section className="sect"> 
@@ -51,15 +38,7 @@ const Home = () => {
     </div>
 
 </section>
-{/* <footer style={{ display: "flex", width: "100%", background: "#333", color: "#fff" }}>
-      <div style={{ margin: "auto", textAlign: "center" }}>
-        <p>Copyright © Your Company All rights reserved.</p>
-      </div>
-    </footer> */}
-   
-  
-
-   <MDBFooter className='text-center text-white' style={{ backgroundColor: '#0a4275' }}>
+<MDBFooter className='text-center text-white' style={{ backgroundColor: '#0a4275' }}>
       <MDBContainer className='p-4 pb-0'>
         <section className=''>
           <p className='d-flex justify-content-center align-items-center'>
